@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #titulo {
+        font-size: 30px;
+        text-align: center;
+      }
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 10px;
+      }
+      .grid-item {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="titulo">Lista de Exercício - Fabríco Tonetto</h1>
+    <div class="grid-container">
+
+      <div class="grid-item">
+        <form>
+            <button onclick="document.body.style.backgroundColor = 'red';">Red</button>
+            <button onclick="document.body.style.backgroundColor = 'green';">Green</button>
+            <button onclick="document.body.style.backgroundColor = 'blue';">Blue</button>
+            <button onclick="document.body.style.backgroundColor = 'yellow';">Yellow</button>            
+        </form>
+      </div>
+
+      <div class="grid-item">
+        <a href="#" onmouseover="document.body.style.backgroundColor = 'red';">Red</a>
+        <a href="#" onmouseover="document.body.style.backgroundColor = 'green';">Green</a>
+        <a href="#" onmouseover="document.body.style.backgroundColor = 'blue';">Blue</a>
+        <a href="#" onmouseover="document.body.style.backgroundColor = 'yellow';">Yellow</a>
+      </div>
+
+      <div class="grid-item">
+        <form>
+            <select onchange="document.body.style.backgroundColor = this.value;">
+                <option value="red">Red</option>
+                <option value="green">Green</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+            </select>              
+        </form>
+      </div>
+
+      <div class="grid-item">
+        <p id="paragrafo4">Este é um texto de exemplo.</p>
+        <button onclick="
+            var p = document.getElementById('paragrafo4');
+            p.style.display = (p.style.display == 'none' ? 'block' : 'none');
+            ">
+            Mostrar/Ocultar Texto
+        </button>
+      </div>
+
+      <div class="grid-item">
+        <form id="form5">
+          <input type="checkbox" onclick="checkCheckboxes();" />
+          <label for="item1"> Item 1</label><br />
+          <input type="checkbox" onclick="checkCheckboxes();" />
+          <label for="item2"> Item 2</label><br />
+          <input type="checkbox" onclick="checkCheckboxes();" />
+          <label for="item3"> Item 3</label><br />
+          <input type="checkbox" onclick="checkCheckboxes();" />
+          <label for="item4"> Item 4</label><br />
+          <button id="myButton" disabled>Submit</button>
+        </form>
+      </div>
+
+      <div class="grid-item">
+        <div id="div6">
+            <p id="myParagraph" style="color: black; background-color: white;">This is an example paragraph. </p>
+        </div>
+        <button onclick="document.getElementById('myParagraph').style.color = 'white';">Font White</button>
+        <button onclick="document.getElementById('myParagraph').style.color = 'black';">Font Black</button>
+        <button onclick="document.getElementById('myParagraph').style.backgroundColor = 'white';">Background White</button>
+        <button onclick="document.getElementById('myParagraph').style.backgroundColor = 'black';">Background Black</button>
+      </div>
+
+      <div class="grid-item">
+        <div id="div7">
+          <p id="myParagraph2" style="font-size: 16px;">Este é um texto de exemplo.</p>
+        </div>
+        <button onclick="document.getElementById('myParagraph2').style.fontSize = (parseInt(window.getComputedStyle(document.getElementById('myParagraph2')).fontSize) + 1) + 'px';">+</button>
+        <button onclick="document.getElementById('myParagraph2').style.fontSize = (parseInt(window.getComputedStyle(document.getElementById('myParagraph2')).fontSize) - 1) + 'px';">-</button>
+      </div>
+
+      <div class="grid-item">
+        <div id="div8">
+          <p id="myParagraph3">Este é um texto de exemplo.</p>
+        </div>
+        <button onclick="document.getElementById('myParagraph3')
+            .style.textTransform = 'uppercase';">Uppercase</button>
+        <button onclick="document.getElementById('myParagraph3')
+            .style.textTransform = 'lowercase';">Lowercase</button>
+      </div>
+
+      <div class="grid-item">
+        <form id="form9" onsubmit="return validateForm();">
+          <label for="login">Login:</label><br />
+          <input type="text" id="login" name="login" required /><br />
+          <label for="senha">Senha:</label><br />
+          <input
+            type="password"
+            id="senha"
+            name="senha"
+            minlength="6"
+            maxlength="10"
+            required
+          /><br />
+          <label for="confirmarSenha">Confirmar Senha:</label><br />
+          <input
+            type="password"
+            id="confirmarSenha"
+            name="confirmarSenha"
+            minlength="6"
+            maxlength="10"
+            required
+          /><br />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
+
+      <div class="grid-item">
+        <form id="clienteForm">
+            <label for="nome">Nome:</label><br>
+            <input type="text" id="nome" name="nome"><br>
+            <input type="radio" id="fisica" name="pessoa" value="fisica" onclick="togglePessoa(true)">
+            <label for="fisica">Pessoa Física</label><br>
+            <input type="radio" id="juridica" name="pessoa" value="juridica" onclick="togglePessoa(false)">
+            <label for="juridica">Pessoa Jurídica</label><br>
+            <label for="cpf">CPF:</label><br>
+            <input type="text" id="cpf" name="cpf" disabled><br>
+            <label for="cnpj">CNPJ:</label><br>
+            <input type="text" id="cnpj" name="cnpj" disabled><br>
+            <label for="nascimento">Data de Nascimento:</label><br>
+            <input type="date" id="nascimento" name="nascimento" disabled><br>
+            <label for="endereco">Endereço:</label><br>
+            <input type="text" id="endereco" name="endereco"><br>
+            <label for="cep">CEP:</label><br>
+            <input type="text" id="cep" name="cep"><br>
+            <label for="telefone">Telefone:</label><br>
+            <input type="text" id="telefone" name="telefone"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email"><br>
+            <input type="submit" value="Submit">
+        </form>
+      </div>
+
+    </div>
+    <script src="/script.js"></script>
+  </body>
+</html>
