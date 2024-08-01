@@ -1,5 +1,8 @@
 //Exercise 01
 
+function changeBackground(color){
+  document.body.style.backgroundColor = color;
+}
 
 //Exercise 05
 
